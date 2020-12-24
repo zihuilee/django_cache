@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>verifycode</title>
+    <script type="text/javascript" src="{% static 'js/refresh.js' %}" ></script>
+</head>
+<body>
+{#    <img id='verifycode' src="../static/images/" alt="CheckCode"/>#}
+    <form method='post' action='{% url 'Two:verifycodeValid' %}'>
+        {% csrf_token %}
+        <input type="text" name="vc">
+        <img id='verifycode' src="/two/verifycode/?1" alt="CheckCode"/>
+    <span id='verifycodeChange'>看不清，换一个</span>
+    <br>
+    <input type="submit" value="提交">
+    </form>
+
+</body>
+</html>

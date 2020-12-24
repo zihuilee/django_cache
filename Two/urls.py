@@ -31,6 +31,11 @@ urlpatterns = [
 
     url(r'^mine/', views.mine, name='mine'),
 
-    url(r'^logout/', views.logout, name='logout')
+    url(r'^logout/', views.logout, name='logout'),
 
+    url(r'^verifycode/', views.verifyCode, name='verifycode'),
+
+    url(r'^index/', views.index, name='index'),
+
+    url(r'^verifycodeValid/', views.verifycodeValid, name='verifycodeValid'),
 ]
