@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>gradelist</title>
+</head>
+<body>
+{#    {% for grade in grades %}#}
+{#        <li><a href="/Two/students/{{ grade.id }}">{{ grade.g_name }}</a></li>#}
+{#    {% endfor %}#}
+
+    {% for grade in grades %}
+        <li><a href="{% url 'Two:students' grade.id %}">{{ grade.g_name }}</a></li>
+    {% endfor %}
+        <button><a href="{% url 'Two:addstudent' %}">添加</a></button>
+
+
+</body>
+</html>

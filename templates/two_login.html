@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TwoLogin</title>
+</head>
+<body>
+<form action="{% url 'Two:login' %}" method="post">
+    {% csrf_token %}
+    用户名：<input type="text" name="uname">
+    <br>
+{#    密码：<input type="text" name="password">#}
+    <button>登录</button>
+</form>
+</body>
+</html>

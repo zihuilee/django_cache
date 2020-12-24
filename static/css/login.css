@@ -1,0 +1,5 @@
+/*点击提交之前，隐藏错误框*/
+#error{
+    color:red;
+    display:none;
+}

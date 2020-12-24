@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>addstudent</title>
+</head>
+<body>
+<form method="post">
+    {% csrf_token %}
+    姓名：<input type="text" name="name" id="name">
+    <br>
+    班级：<input type="text" name="grade" id="grade">
+    <br>
+    <input type="submit" value="添加">
+
+</form>
+</body>
+</html>
