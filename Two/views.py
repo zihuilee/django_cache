@@ -11,6 +11,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from Two.models import Stu, Grade, Person, Animals, Student
+from djangocache import settings
 
 
 def verifyCode(request):
@@ -54,9 +55,9 @@ def verifyCode(request):
     buf = BytesIO()
     # 将图片保存在内存中，文件类型为png
     im.save(buf, 'png')
-    data = buf.getvalue()
+    # data = buf.getvalue()
     # # 将内存中的图片数据返回给客户端，MIME类型为图片png
-    return HttpResponse(data)
+    return HttpResponse(buf.getvalue(), 'image/png')
 
 
 def get_stu_grade(request):
@@ -209,12 +210,24 @@ def generate_token(ip, username):
 
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'upload.html')
 
 
 def verifycodeValid(request):
     vc = request.POST['vc']
     if vc.upper() == request.session['verifycode']:
+        return HttpResponse('ok %s' % vc)
+    else:
+        return HttpResponse('no %s' % vc)
+
+
+def upload(request):
+    if request.method == 'POST':
+        f1 = request.FILES.get('pic')
+        fname = '%s/%s' % (settings.MEDIA_ROOT, f1.name)
+        with open(fname,  'wb') as fp:
+            for c in f1.chunks():
+                fp.write(c)
         return HttpResponse('ok')
     else:
-        return HttpResponse('no')
+        return HttpResponse('error')

@@ -38,4 +38,6 @@ urlpatterns = [
     url(r'^index/', views.index, name='index'),
 
     url(r'^verifycodeValid/', views.verifycodeValid, name='verifycodeValid'),
+
+    url(r'^upload/', views.upload, name='upload'),
 ]

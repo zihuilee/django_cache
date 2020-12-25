@@ -11,7 +11,7 @@
     <form method='post' action='{% url 'Two:verifycodeValid' %}'>
         {% csrf_token %}
         <input type="text" name="vc">
-        <img id='verifycode' src="/two/verifycode/?1" alt="CheckCode"/>
+        <img id='verifycode' src="/two/verifycode/" alt="CheckCode"/>
     <span id='verifycodeChange'>看不清，换一个</span>
     <br>
     <input type="submit" value="提交">
